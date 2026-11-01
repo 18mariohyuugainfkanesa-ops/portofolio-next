@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,11 +14,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Mario Hyuuga Reza Angga Pratama | Portofolio",
-  description:
-    "Portofolio Mario Hyuuga Reza Angga Pratama, siswa SMK jurusan PPLG.",
-};
+export const metadata = {  
+  title: {    
+    default: "Mario Hyuuga Reza Angga Pratama | Portofolio",    
+    template: "%s | Mario Hyuuga Reza Angga Pratama",  
+  },
+    
+  description: "Portofolio Mario Hyuuga Reza Angga Pratama, siswa SMK calon Junior Web Developer di Kelas Industri UBIG.", };
 
 export default function RootLayout({
   children,
@@ -27,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Navbar />
         {children}
         <Footer />
       </body>
