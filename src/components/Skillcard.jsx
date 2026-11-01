@@ -1,8 +1,13 @@
-export default function SkillCard({ nama, level }) {
+export default function SkillCard({ skill }) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
-      <h3 className="text-sm font-semibold text-utama">{nama}</h3>
-      <p className="mt-1 text-xs text-gray-600">Level: {level}</p>
+    <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-md hover:shadow-lg transition">
+      <h3 className="text-lg font-bold text-blue-900">
+        {skill.nama}
+      </h3>
+
+      <p className="mt-2 text-sm text-gray-600">
+        Level: {skill.level}
+      </p>
     </div>
   );
 }
