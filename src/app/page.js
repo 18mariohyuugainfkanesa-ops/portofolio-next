@@ -1,13 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import ProyekCard from "@/components/ProyekCard";
-import SkillCard from "@/components/Skillcard";
 import { proyek } from "@/data/proyek";
+import FilterKeahlian from "@/components/FilterKeahlian";
 
-export default function Home() {
-  
+export default async function Page() {
   const skills = [
     { id: 1, nama: "HTML", level: "Menengah" },
     { id: 2, nama: "CSS", level: "Menengah" },
@@ -18,34 +15,24 @@ export default function Home() {
 
   const proyekTerbaru = proyek.slice(-3);
 
-  // Fungsi untuk scroll otomatis ke section tertentu
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <div className="min-h-screen text-[#1e293b] flex flex-col font-sans">
+    <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
       <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
         
         {/* Section 1: Hero */}
         <Hero
           nama="Mario Hyuuga Reza Angga Pratama"
           tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
-          onTentangSayaClick={() => scrollToSection("tentang-saya")}
-          onLihatKeahlianClick={() => scrollToSection("keahlian")}
+          // Note: Jika fungsi scroll-to-section dibutuhkan di Hero, 
+          // pastikan logika interaksinya diatur di dalam komponen Hero (Client Component) itu sendiri.
         />
 
         {/* Section: Keahlian */}
         <section id="keahlian" className="scroll-mt-6">
-          <h2 className="text-xl font-bold text-[#0d233a] mb-5">Keahlian</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-           {skills.map((skill) => (
-  <SkillCard key={skill.id} skill={skill} />
-))}
-          </div>
+          <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
+          
+          {/* Ketentuan 5: Mengganti div kartu keahlian lama dengan <FilterKeahlian /> */}
+          <FilterKeahlian skills={skills} />
 
           <div className="mt-8 flex justify-start">
             <Link 
@@ -59,7 +46,7 @@ export default function Home() {
 
         {/* Section: Proyek Terbaru */}
         <section className="pt-2">
-          <h2 className="mb-5 text-xl font-bold text-[#0d233a]">Proyek Terbaru</h2>
+          <h2 className="mb-5 text-xl font-bold text-utama dark:text-sky-200">Proyek Terbaru</h2>
           
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {proyekTerbaru.map((item) => (

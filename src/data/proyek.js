@@ -4,7 +4,7 @@ export const proyek = [
     judul: "Junior Web Developer Industry Class MODUL 1",
     kategori:["HTML", "CSS","CodePen"], 
     minggu: "Minggu 01",
-    gambar: "/projek1.png",
+    gambar: "projek1.png",
     deskripsi: "Portofolio pertama saya, yang dibangun dari nol sembari mempelajari dasar-dasar pengembangan frontend, struktur HTML, dan penataan gaya mode gelap (dark mode).",
     fitur: [
       "Membuat judul utama perkenalan diri menggunakan tag h1 dan paragraf deskripsi p",
@@ -17,7 +17,7 @@ export const proyek = [
     judul: "Mobile Responsive MODUL 2",
     kategori: ["HTML", "CSS", "Responsive"],
     minggu: "Minggu 02",
-    gambar: "/projek2.png",
+    gambar: "projek2.png",
     deskripsi: "Latihan desain web responsif yang mencakup tata letak fleksibel, titik henti (breakpoint) untuk desktop, status hover, serta pemeriksaan menggunakan Lighthouse.",
     fitur: [
       "Membuat kartu profil digital responsif dengan tata letak flexbox dan grid",
@@ -28,9 +28,9 @@ export const proyek = [
   {
     slug: "Interactive Digital Profile MODUL 3",
     judul: "Interactive Digital Profile MODUL 3",
-    kategori: ["HTML", "CSS", "JAVASCRIPT"],
+    kategori: ["HTML", "CSS", "Javascript"],
     minggu: "Minggu 03",
-    gambar: "/projek3.png",
+    gambar: "projek3.png",
     deskripsi: "Profil interaktif yang menggunakan peristiwa (event) JavaScript untuk pergantian tema, sapaan dinamis, dan avatar animasi.",
     fitur: [
       "Membuat fitur sapaan dinamis (seperti 'Selamat Sore') yang otomatis berubah menggunakan logika waktu JavaScript",

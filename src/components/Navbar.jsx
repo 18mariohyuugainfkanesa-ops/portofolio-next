@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TombolTema from "@/components/TombolTema";
 
 const menu = [
  { href: "/", label: "Beranda" },
@@ -16,7 +17,7 @@ export default function Navbar() {
    <header className="bg-[#0d233a] text-white">
    <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
    <Link href="/" className="text-xl font-bold">
-        Mario Hyuuga Reza Angga Pratama
+ Mario Hyuuga Reza Angga Pratama
    </Link>
    <ul className="flex flex-wrap gap-x-5 gap-y-2">
      {menu.map((item) => {
@@ -34,6 +35,7 @@ export default function Navbar() {
           );
      })}
       </ul>
+      <TombolTema />
      </nav>
    </header>
  );

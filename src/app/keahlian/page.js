@@ -3,37 +3,29 @@ import { keahlian } from "@/data/keahlian";
 
 export const metadata = {
   title: "Keahlian",
-  description:
-    "Daftar kompetensi dan keahlian yang sedang dipelajari Mario Hyuuga Reza Angga Pratama.",
+  description: "Daftar keahlian dan kompetensi industri milik Mario Hyuuga Reza Angga Pratama.",
 };
 
-export default function KeahlianPage() {
+export default function HalamanKeahlian() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-5 py-10 md:px-8 md:py-16">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-utama md:text-4xl">
-          Keahlian Saya
-        </h1>
-        <p className="mt-3 max-w-2xl leading-7 text-slate-600">
-          Daftar kompetensi dan keahlian yang telah dan sedang saya pelajari.
-          Pilih keahlian untuk membaca keterangannya.
-        </p>
-      </header>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <main className="mx-auto max-w-5xl px-6 py-12 font-sans text-gray-800 dark:text-gray-100">
+      <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 md:text-4xl mb-3">Keahlian Saya</h1>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Daftar kompetensi dan keahlian pengembangan web yang telah saya pelajari.</p>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {keahlian.map((item) => (
           <Link
             key={item.slug}
             href={`/keahlian/${item.slug}`}
-            className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
+            className="block p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-blue-500 transition-all group"
           >
-            <h2 className="text-lg font-semibold text-utama group-hover:underline">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
               {item.nama}
-            </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Level: {item.level}
+            </h3>
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              Level: <span className="font-semibold text-gray-700 dark:text-gray-300">{item.level}</span>
             </p>
-            <span className="mt-4 inline-block text-sm font-semibold text-utama">
+            <span className="mt-4 inline-block text-xs font-semibold text-blue-600 group-hover:underline">
               Lihat detail &rarr;
             </span>
           </Link>
