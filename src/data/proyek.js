@@ -1,41 +1,44 @@
 export const proyek = [
-  {
-    slug: "Junior Web Developer Industry Class MODUL 1",
-    judul: "Junior Web Developer Industry Class MODUL 1",
-    kategori:["HTML", "CSS","CodePen"], 
-    minggu: "Minggu 01",
-    gambar: "projek1.png",
-    deskripsi: "Portofolio pertama saya, yang dibangun dari nol sembari mempelajari dasar-dasar pengembangan frontend, struktur HTML, dan penataan gaya mode gelap (dark mode).",
-    fitur: [
-      "Membuat judul utama perkenalan diri menggunakan tag h1 dan paragraf deskripsi p",
-      "Menyusun section 'Tentang Saya' yang berisi ringkasan profil sebagai siswa RPL",
-      "Mendaftar keahlian dan skill yang sedang dipelajari menggunakan list poin (ul dan li)",
-    ],
-  },
-  {
-    slug: "Mobile Responsive MODUL 2",
-    judul: "Mobile Responsive MODUL 2",
-    kategori: ["HTML", "CSS", "Responsive"],
-    minggu: "Minggu 02",
-    gambar: "projek2.png",
-    deskripsi: "Latihan desain web responsif yang mencakup tata letak fleksibel, titik henti (breakpoint) untuk desktop, status hover, serta pemeriksaan menggunakan Lighthouse.",
-    fitur: [
-      "Membuat kartu profil digital responsif dengan tata letak flexbox dan grid",
-      "Mengatur breakpoint media queries agar tampilan kartu proyek otomatis rapi di layar handphone",
-      "Menganalisis performa kecepatan dan aksesibilitas halaman web menggunakan audit Lighthouse",
-    ],
-  },
-  {
-    slug: "Interactive Digital Profile MODUL 3",
-    judul: "Interactive Digital Profile MODUL 3",
-    kategori: ["HTML", "CSS", "Javascript"],
-    minggu: "Minggu 03",
-    gambar: "projek3.png",
-    deskripsi: "Profil interaktif yang menggunakan peristiwa (event) JavaScript untuk pergantian tema, sapaan dinamis, dan avatar animasi.",
-    fitur: [
-      "Membuat fitur sapaan dinamis (seperti 'Selamat Sore') yang otomatis berubah menggunakan logika waktu JavaScript",
-      "Mengintegrasikan tombol interaktif 'Mode Gelap' menggunakan JavaScript DOM untuk mengubah tema warna halaman",
-      "Menyusun daftar keahlian kompetensi industri (seperti HTML5 Semantic dan CSS3 Flexbox) dalam bentuk badge capsule yang rapi",
-    ],
-  },
+{
+slug: "halaman-profil",
+judul: "Halaman Profil Pertama",
+kategori: "HTML",
+minggu: "Minggu 01",
+gambar: "projek1.png",
+deskripsi: "Halaman web pertama saya, dibuat dengan HTML dasar.",
+fitur: [
+"Judul dan paragraf perkenalan dengan h1 dan p",
+"Foto profil dengan atribut alt",
+"Daftar hobi dengan ul dan li",
+],
+},
+
+{
+slug: "halaman-profil",
+judul: "Halaman Profil Kedua",
+kategori: "HTML",
+minggu: "Minggu 02",
+gambar: "projek2.png",
+deskripsi: "Halaman web Kedua saya, dibuat dengan HTML dasar.",
+fitur: [
+"Judul dan paragraf perkenalan dengan h1 dan p",
+"Foto profil dengan atribut alt",
+"Daftar hobi dengan ul dan li",
+],
+},
+
+{
+slug: "halaman-profil",
+judul: "Halaman Profil Ketiga",
+kategori: "HTML",
+minggu: "Minggu 03",
+gambar: "projek3.png",
+deskripsi: "Halaman web Ketiga saya, dibuat dengan HTMLdasar.",
+fitur: [
+"Judul dan paragraf perkenalan dengan h1 dan p",
+"Foto profil dengan atribut alt",
+"Daftar hobi dengan ul dan li",
+],
+},
+
 ];
