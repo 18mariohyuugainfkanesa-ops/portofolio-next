@@ -26,7 +26,7 @@ export default function Navbar() {
           href="/"
           className="text-lg font-bold tracking-tight focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
-          Danendra Fadhil Abiyu Hadianto
+          Mario Hyuuga Reza Angga Pratama
         </Link>
         <div className="flex flex-wrap items-center gap-4">
           <nav aria-label="Navigasi utama">

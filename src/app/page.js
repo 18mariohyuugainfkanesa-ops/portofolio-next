@@ -1,11 +1,9 @@
 import Hero from "@/components/Hero";
-import Skillcard from "@/components/Skillscard";
+import Skillcard from "@/components/Skillcard";
 import ProyekCard from "@/components/ProyekCard";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
-
-export const revalidate = 60;
 
 export default async function Home() {
   const { data: skills } = await supabase
@@ -23,7 +21,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-6xl space-y-12 px-5 py-12 md:px-8 md:py-16">
       <section className="py-2 md:py-4">
         <Hero
-          nama="Danendra Fadhil Abiyu Hadianto"
+          nama="Mario Hyuuga Reza Angga Pratama"
           tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG."
         />
       </section>

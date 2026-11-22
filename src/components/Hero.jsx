@@ -6,27 +6,26 @@ export default function Hero({ nama, tagline }) {
   return (
     <section className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
       <Image
-        src="/foto-ku.jpeg"
+        src="/foto-saya.jpeg"
         alt={`Foto profil ${nama}`}
         width={180}
         height={180}
         loading="eager"
-        className="h-36 w-36 shrink-0 rounded-full border-4 border-aksen object-cover md:h-44 md:w-44"
+        className="w-32 h-32 rounded-full aspect-square object-cover border-4 border-aksen"
       />
-      <div>
-        <h1 className="text-3xl font-bold text-primary md:text-4xl xl:text-5xl">
+      <div className="flex-1">
+        <h1 className="text-3xl font-bold text-primary md:text-5xl">
           Halo, saya {nama}!
         </h1>
-        <p className="mt-3 text-lg text-muted-foreground">
-          {tagline}
-        </p>
+        <p className="mt-3 text-lg text-muted-foreground">{tagline}</p>
+
         <div className="mt-5 flex justify-center gap-3 md:justify-start">
           <Link href="/proyek" className={buttonVariants({ size: "lg" })}>
             Lihat Proyek
           </Link>
           <Link
             href="/kontak"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
+            className={`${buttonVariants({ variant: "outline", size: "lg" })} border-2 border-primary text-primary dark:border-primary dark:text-primary`}
           >
             Hubungi Saya
           </Link>
