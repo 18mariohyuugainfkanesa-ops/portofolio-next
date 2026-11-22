@@ -1,43 +1,45 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import ProyekCard from "@/components/ProyekCard";
-import { proyek } from "@/data/proyek";
+import Skillcard from "@/components/Skillscard";
 import FilterKeahlian from "@/components/FilterKeahlian";
+import { supabase } from "@/lib/supabase";
 
-export default async function Page() {
-  const skills = [
-    { id: 1, nama: "HTML", level: "Menengah" },
-    { id: 2, nama: "CSS", level: "Menengah" },
-    { id: 3, nama: "Git dan GitHub", level: "Dasar" },
-    { id: 4, nama: "Desain poster dengan Canva", level: "Mahir" },
-    { id: 5, nama: "JavaScript", level: "Dasar" },
-  ];
+export const revalidate = 60;
 
-  const proyekTerbaru = proyek.slice(-3);
+export default async function Home() {
+  const { data: skills } = await supabase
+    .from("skills")
+    .select("*")
+    .order("id");
+  const { data: proyekDariSupabase } = await supabase
+    .from("projects")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(3);
+
+  const proyekTerbaru = proyekDariSupabase;
 
   return (
-    <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
+    <div className="min-h-screen text-foreground flex flex-col font-sans">
       <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
         
-        {/* Section 1: Hero */}
+        {/* Section : Hero */}
         <Hero
-          nama="Mario Hyuuga Reza Angga Pratama"
+          nama="Rizki Akbar Pradana"
           tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
-          // Note: Jika fungsi scroll-to-section dibutuhkan di Hero, 
-          // pastikan logika interaksinya diatur di dalam komponen Hero (Client Component) itu sendiri.
         />
 
         {/* Section: Keahlian */}
         <section id="keahlian" className="scroll-mt-6">
-          <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
+          <h2 className="text-xl font-bold text-primary mb-5">Keahlian</h2>
           
-          {/* Ketentuan 5: Mengganti div kartu keahlian lama dengan <FilterKeahlian /> */}
           <FilterKeahlian skills={skills} />
 
           <div className="mt-8 flex justify-start">
             <Link 
               href="/keahlian" 
-              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
+              className="rounded-lg border border-black bg-black px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800 dark:border-white/60 dark:shadow-white/10"
             >
               Lihat semua keahlian
             </Link>
@@ -46,18 +48,18 @@ export default async function Page() {
 
         {/* Section: Proyek Terbaru */}
         <section className="pt-2">
-          <h2 className="mb-5 text-xl font-bold text-utama dark:text-sky-200">Proyek Terbaru</h2>
+          <h2 className="mb-5 text-xl font-bold text-primary">Proyek Terbaru</h2>
           
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {proyekTerbaru.map((item) => (
+            {proyekTerbaru?.map((item) => (
               <ProyekCard key={item.slug} proyek={item} />
             ))}
           </div>
           
           <div className="mt-8 flex justify-start">
-            <Link 
-              href="/proyek" 
-              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
+             <Link
+              href="/proyek"
+              className="rounded-lg border border-black bg-black px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800 dark:border-white/60 dark:shadow-white/10"
             >
               Lihat semua proyek
             </Link>

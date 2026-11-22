@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Mario Hyuuga Reza Angga Pratama | portofolio",
-    template: "%s | Mario Hyuuga Reza Angga Pratama",
+    default: "Rizki Akbar Pradana | portofolio",
+    template: "%s | Rizki Akbar Pradana",
   },
-  description: "portofolio Mario Hyuuga Reza Angga Pratama, siswa SMK calon Junior Web Developer di kelas Industri UBIG",
+  description: "portofolio Rizki Akbar Pradana, siswa SMK calon Junior Web Developer di kelas Industri UBIG",
 };
 
 
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-latar dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         {children}
         <Footer />

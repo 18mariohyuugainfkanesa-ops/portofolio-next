@@ -1,7 +1,10 @@
 export default function Footer() {
-  return (
-    <footer className="mt-auto bg-utama p-6 text-center">
-      <p>© 2026 Mario Hyuuga Reza Angga Pratama. All Rights Reserved.</p>
+ const tahun = new Date().getFullYear();
+
+ return (
+    <footer className="mt-auto bg-utama p-6 text-center text-latar">
+     <p>&copy; {tahun} Mario Hyuuga Reza Angga Pratama. Dibuat dengan Next.js di Kelas
+Industri UBIG.</p>
     </footer>
   );
 }
