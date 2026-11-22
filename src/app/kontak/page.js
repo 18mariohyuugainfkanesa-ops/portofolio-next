@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata = {
   title: "Kontak",
-  description: "Hubungi Danendra Fadhil Abiyu Hadianto.",
+  description: "Hubungi Mario Hyuuga Reza Angga Pratama.",
 };
 
 export default function KontakPage() {
@@ -38,7 +38,7 @@ export default function KontakPage() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com/danendrafadhil"
+                  href="https://github.com/18mariohyuugainfkanesa-ops?tab=repositories"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-aksen hover:underline"
@@ -48,10 +48,10 @@ export default function KontakPage() {
               </li>
               <li>
                 <a
-                  href="mailto:danendrafadhil.abiyu11@gmail.com"
+                  href="mailto:18mariohyuugainfkanesa@gmail.com"
                   className="break-all text-aksen hover:underline"
                 >
-                  danendrafadhil.abiyu11@gmail.com
+                  18mariohyuugainfkanesa@gmail.com
                 </a>
               </li>
             </ul>

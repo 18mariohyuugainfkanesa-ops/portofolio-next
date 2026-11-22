@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function SkillCard({ nama, level }) {
+export default function Skillcard({ nama, level }) {
   return (
     <Card>
       <CardHeader>

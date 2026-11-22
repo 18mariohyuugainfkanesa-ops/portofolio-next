@@ -4,7 +4,7 @@ import { keahlian } from "@/data/keahlian";
 export const metadata = {
   title: "Keahlian",
   description:
-    "Daftar kompetensi dan keahlian yang sedang dipelajari Danendra Fadhil Abiyu Hadianto.",
+    "Daftar kompetensi dan keahlian yang sedang dipelajari Mario Hyuuga Reza Angga Pratama.",
 };
 
 export default function KeahlianPage() {

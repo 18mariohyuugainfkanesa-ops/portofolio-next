@@ -3,7 +3,7 @@ import Kartu from "@/components/Kartu";
 export const metadata = {
   title: "Tentang Saya",
   description:
-    "Cerita, hobi, cita-cita, dan jadwal belajar Danendra Fadhil Abiyu Hadianto.",
+    "Cerita, hobi, cita-cita, dan jadwal belajar Mario Hyuuga Reza Angga Pratama.",
 };
 
 const jadwalBelajar = [
@@ -40,9 +40,9 @@ export default function Tentang() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <Kartu judul="Hobi">
           <ul className="list-inside list-disc space-y-2 text-muted-foreground">
-            <li>Berenang</li>
-            <li>Membaca komik</li>
-            <li>Membuat miniatur</li>
+            <li>Bersepeda</li>
+            <li>Bermain Game</li>
+            <li>Bermain Seoak Bola</li>
           </ul>
         </Kartu>
 

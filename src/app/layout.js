@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Danendra Fadhil Abiyu Hadianto | Portofolio",
-    template: "%s | Danendra Fadhil Abiyu Hadianto",
+    default: "Mario Hyuuga Reza Angga Pratama | Portofolio",
+    template: "%s | Mario Hyuuga Reza Angga Pratama",
   },
   description:
-    "Portofolio Danendra Fadhil Abiyu Hadianto, siswa SMK yang belajar menjadi Junior Web Developer di Kelas Industri UBIG.",
+    "Portofolio Mario Hyuuga Reza Angga Pratama, siswa SMK yang belajar menjadi Junior Web Developer di Kelas Industri UBIG.",
 };
 
 export default function RootLayout({ children }) {

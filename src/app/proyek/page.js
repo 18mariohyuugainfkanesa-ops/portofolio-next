@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 export const metadata = {
   title: "Proyek",
   description:
-    "Daftar proyek HTML, CSS, dan JavaScript karya Danendra Fadhil Abiyu Hadianto.",
+    "Daftar proyek HTML, CSS, dan JavaScript karya Mario Hyuuga Reza Angga Pratama.",
 };
 
 export const revalidate = 60;
