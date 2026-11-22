@@ -1,81 +1,98 @@
-import { supabase } from "@/lib/supabase";
+import Kartu from "@/components/Kartu";
 
 export const metadata = {
   title: "Tentang Saya",
-  description: "Cerita, hobi, cita-cita, dan jadwal belajar Mario Hyuuga Reza Angga Pratma.",
+  description:
+    "Cerita, hobi, cita-cita, dan jadwal belajar Danendra Fadhil Abiyu Hadianto.",
 };
 
-export default async function Tentang() {
-  const { data: jadwal } = await supabase
-    .from("jadwal")
-    .select("*")
-    .order("id");
+const jadwalBelajar = [
+  { hari: "Senin", waktu: "19.00 - 20.00", kegiatan: "Membaca ulang modul" },
+  {
+    hari: "Selasa",
+    waktu: "19.00 - 21.00",
+    kegiatan: "Mengerjakan tugas praktik",
+  },
+  {
+    hari: "Rabu",
+    waktu: "19.30 - 20.30",
+    kegiatan: "Merekam video dan menulis laporan",
+  },
+];
 
+export default function Tentang() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 space-y-6">
-      
-      <h1 className="text-3xl font-bold text-primary md:text-4xl">Tentang Saya</h1>
+    <main className="mx-auto w-full max-w-6xl space-y-6 px-5 py-10 md:px-8 md:py-16">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold text-primary md:text-4xl">
+          Perkenalan
+        </h1>
+      </header>
 
-      {/* Section 2: Tentang Saya */}
-      <section id="tentang-saya" className="bg-card p-6 rounded-xl shadow-sm border border-border scroll-mt-6">
-        <h2 className="text-xl font-bold text-primary mb-3">Perkenalan</h2>
-        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-          Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi. Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.
+      <Kartu judul="Tentang Saya">
+        <p className="leading-7 text-muted-foreground">
+          Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi.
+          Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM
+          di sekitar rumah.
         </p>
-      </section>
+      </Kartu>
 
-      {/* Section 3 & 4: Hobi & Cita-Cita Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* Hobi - Diubah menggunakan list-disc biasa agar tanda bullet poin tidak menabrak teks */}
-        <section className="bg-card p-6 rounded-xl shadow-sm border border-border">
-          <h2 className="text-xl font-bold text-primary mb-4">Hobi</h2>
-          <ul className="list-disc pl-5 text-muted-foreground text-sm md:text-base space-y-2">
-            <li>Bersepeda</li>
-            <li>Bermain Game</li>
-            <li>Bermain Sepak Bola</li>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <Kartu judul="Hobi">
+          <ul className="list-inside list-disc space-y-2 text-muted-foreground">
+            <li>Berenang</li>
+            <li>Membaca komik</li>
+            <li>Membuat miniatur</li>
           </ul>
-        </section>
+        </Kartu>
 
-        {/* Cita-Cita */}
-        <section className="bg-card p-6 rounded-xl shadow-sm border border-border">
-          <h2 className="text-xl font-bold text-primary mb-3">Cita-cita</h2>
-          <p className="text-muted-foreground text-sm md:text-base mb-3">
-            Menjadi <span className="font-bold text-primary">Full Stack Web Developer</span>. Langkah yang saya rencanakan:
+        <Kartu judul="Cita-cita">
+          <p className="mb-3 text-muted-foreground">
+            Menjadi{" "}
+            <span className="font-bold text-primary">
+              Full Stack Web Developer
+            </span>
+            . Langkah yang saya rencanakan:
           </p>
-          <ol className="list-decimal pl-5 text-muted-foreground text-sm md:text-base space-y-2">
-            <li>Menuntaskan Kelas Industri UBIG sampai tuntas</li>
+          <ol className="list-inside list-decimal space-y-2 text-muted-foreground">
+            <li>Menuntaskan Kelas Industri UBIG</li>
             <li>Magang di perusahaan teknologi</li>
             <li>Bekerja sebagai Web Developer</li>
           </ol>
-        </section>
+        </Kartu>
       </div>
 
-      {/* Section 6: Jadwal Belajar */}
-      <section className="bg-card p-6 rounded-xl shadow-sm border border-border">
-        <h2 className="text-xl font-bold text-primary mb-5">Jadwal Belajar</h2>
+      <Kartu judul="Jadwal Belajar">
         <div className="overflow-x-auto rounded-lg border border-border">
-          <table className="w-full text-left border-collapse text-sm md:text-base">
+          <table className="w-full border-collapse text-left text-sm">
             <thead>
-              <tr className="bg-primary text-primary-foreground">
-                <th className="p-4 font-semibold">Hari</th>
-                <th className="p-4 font-semibold">Waktu</th>
-                <th className="p-4 font-semibold">Kegiatan</th>
+              <tr className="bg-utama text-white">
+                <th scope="col" className="p-3 font-semibold">
+                  Hari
+                </th>
+                <th scope="col" className="p-3 font-semibold">
+                  Waktu
+                </th>
+                <th scope="col" className="p-3 font-semibold">
+                  Kegiatan
+                </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border text-muted-foreground">
-              {jadwal && jadwal.map((item) => (
-                <tr key={item.id} className="transition-colors hover:bg-muted">
-                  <td className="p-4 font-medium">{item.hari}</td>
-                  <td className="p-4">{item.waktu}</td>
-                  <td className="p-4">{item.kegiatan}</td>
+            <tbody className="text-muted-foreground">
+              {jadwalBelajar.map((item) => (
+                <tr
+                  key={item.hari}
+                  className="border-b border-border last:border-0"
+                >
+                  <td className="p-3 font-medium">{item.hari}</td>
+                  <td className="p-3">{item.waktu}</td>
+                  <td className="p-3">{item.kegiatan}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </section>
-
+      </Kartu>
     </main>
   );
 }

@@ -1,10 +1,10 @@
 export default function Footer() {
- const tahun = new Date().getFullYear();
-
- return (
-    <footer className="mt-auto bg-utama p-6 text-center text-latar">
-     <p>&copy; {tahun} Mario Hyuuga Reza Angga Pratama. Dibuat dengan Next.js di Kelas
-Industri UBIG.</p>
+  return (
+    <footer className="mt-auto w-full bg-utama px-5 py-5 text-center text-sm text-white">
+      <p>
+        &copy; {new Date().getFullYear()} Danendra Fadhil Abiyu Hadianto. Dibuat
+        dengan Next.js di Kelas Industri UBIG.
+      </p>
     </footer>
   );
 }

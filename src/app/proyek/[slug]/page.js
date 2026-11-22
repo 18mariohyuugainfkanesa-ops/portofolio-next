@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
   if (!item) {
     return { title: "Proyek tidak ditemukan" };
   }
+
   return { title: item.judul, description: item.deskripsi };
 }
 
@@ -34,13 +35,20 @@ export default async function DetailProyek({ params }) {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-      <Link href="/proyek" className="text-sm font-semibold text-red-600 hover:text-red-700 hover:underline">
+      <Link
+        href="/proyek"
+        className="text-sm font-semibold text-aksen hover:underline"
+      >
         &larr; Kembali ke daftar proyek
       </Link>
-      <h1 className="mt-4 text-3xl font-bold text-primary md:text-4xl">{item.judul}</h1>
+      <h1 className="mt-4 text-3xl font-bold text-primary md:text-4xl">
+        {item.judul}
+      </h1>
       <div className="mt-3 flex items-center gap-3">
         <Badge>{item.kategori}</Badge>
-        <span className="text-muted-foreground">Dibuat di {item.minggu}</span>
+        <span className="text-muted-foreground">
+          Dibuat di {item.minggu}
+        </span>
       </div>
       <Image
         src={item.gambar_url}
@@ -55,7 +63,7 @@ export default async function DetailProyek({ params }) {
       <Separator className="my-8" />
       <h2 className="text-2xl font-bold text-primary">Yang Saya Pelajari</h2>
       <ul className="mt-3 list-disc pl-5">
-        {item.fitur.map((f) => (
+        {(item.fitur || []).map((f) => (
           <li key={f}>{f}</li>
         ))}
       </ul>

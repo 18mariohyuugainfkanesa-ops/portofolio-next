@@ -5,8 +5,7 @@ export default function SkillCard({ nama, level }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-lg 
-text-primary">{nama}</CardTitle>
+        <CardTitle className="text-lg text-primary">{nama}</CardTitle>
         <Badge variant="outline">Level: {level}</Badge>
       </CardHeader>
     </Card>

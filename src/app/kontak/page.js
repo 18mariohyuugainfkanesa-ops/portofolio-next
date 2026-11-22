@@ -1,38 +1,33 @@
 import FormKontak from "@/components/FormKontak";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata = {
   title: "Kontak",
-  description: "Hubungi Mario Hyuuga Reza Angga Pratama untuk pertanyaan atau kolaborasi proyek.",
+  description: "Hubungi Danendra Fadhil Abiyu Hadianto.",
 };
 
-export default function Kontak() {
+export default function KontakPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12 font-sans text-foreground w-full">
-      {/* Bagian Judul Halaman */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-primary md:text-4xl tracking-tight">
+    <main className="mx-auto w-full max-w-6xl px-5 py-10 md:px-8 md:py-16">
+      <header className="mb-8">
+        <p className="font-semibold text-aksen dark:text-red-400">
+          Ada pertanyaan?
+        </p>
+        <h1 className="mt-2 text-3xl font-bold text-primary md:text-4xl">
           Hubungi Saya
         </h1>
-        <p className="mt-2 text-base text-muted-foreground">
-          Punya pertanyaan atau ingin bekerja sama? Isi form berikut:
+        <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
+          Punya pertanyaan atau ingin bekerja sama? Isi formulir berikut.
         </p>
-      </div>
+      </header>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch w-full">
-        {/* KOLOM KIRI: FORMULIR */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card className="md:col-span-2">
-          <CardContent className="pt-6">
+          <CardContent>
             <FormKontak />
           </CardContent>
         </Card>
 
-        {/* KOLOM KANAN: TEMUKAN SAYA */}
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-primary">
@@ -40,23 +35,23 @@ export default function Kontak() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/danendrafadhil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-aksen hover:underline font-medium"
+                  className="text-aksen hover:underline"
                 >
-                  GitHub &rarr;
+                  GitHub
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:18mariohyuugainfkanesa@gmail.com"
-                  className="text-aksen hover:underline font-medium break-all"
+                  href="mailto:danendrafadhil.abiyu11@gmail.com"
+                  className="break-all text-aksen hover:underline"
                 >
-                  18mariohyuugainfkanesa@gmail.com
+                  danendrafadhil.abiyu11@gmail.com
                 </a>
               </li>
             </ul>

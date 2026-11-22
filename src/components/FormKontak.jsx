@@ -2,153 +2,244 @@
 
 import { useState } from "react";
 
-const kelasInput = "mt-1 w-full rounded-lg border border-input bg-card p-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
-
+const kelasInput =
+  "mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-gray-800 outline-none transition focus:border-utama focus:ring-2 focus:ring-utama/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100";
 
 export default function FormKontak() {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
-  
-  // STATE BARU UNTUK KODE 6.10 & 6.11
-  const [hp, setHp] = useState("");
+  const [telepon, setTelepon] = useState("");
   const [keperluan, setKeperluan] = useState("");
   const [pesan, setPesan] = useState("");
   const [error, setError] = useState({});
-  const [berhasil, setBerhasil] = useState(false);
+  const [berhasil, setBerhasil] = useState("");
 
-  function kirim(e) {
-    e.preventDefault();
+  function kirim(event) {
+    event.preventDefault();
+
     const errorBaru = {};
+    const nomorAngka = telepon.replace(/\D/g, "");
 
     if (!nama.trim()) {
       errorBaru.nama = "Nama wajib diisi.";
     }
-    
+
     if (!email.includes("@")) {
-      errorBaru.email = "Email harus memuat tanda @, contoh nama@email.com.";
+      errorBaru.email = "Email harus memuat tanda @, contoh nama@gmail.com.";
     }
 
-    if (hp.length < 10) {
-      errorBaru.hp = "Nomor HP minimal 10 angka.";
+    if (nomorAngka.length < 10) {
+      errorBaru.telepon = "Nomor HP minimal 10 angka.";
     }
-    if (keperluan === "") {
+
+    if (!keperluan) {
       errorBaru.keperluan = "Pilih salah satu keperluan.";
     }
+
     if (pesan.trim().length < 10) {
       errorBaru.pesan = "Pesan minimal 10 karakter.";
     }
 
     setError(errorBaru);
-    setBerhasil(Object.keys(errorBaru).length === 0);
+    setBerhasil(
+      Object.keys(errorBaru).length === 0
+        ? `Terima kasih, ${nama.trim()}! Pesanmu sudah lolos pemeriksaan.`
+        : ""
+    );
   }
 
   return (
-    <form onSubmit={kirim} noValidate className="space-y-4 max-w-xl">
-      {/* 1. Isian Nama */}
+    <form
+      onSubmit={kirim}
+      noValidate
+      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-8"
+    >
       <div>
-        <label htmlFor="nama" className="block font-semibold text-foreground">
+        <label
+          htmlFor="nama"
+          className="block font-semibold text-primary"
+        >
           Nama lengkap
         </label>
         <input
-          type="text"
           id="nama"
+          name="nama"
+          type="text"
+          autoComplete="name"
+          placeholder="Contoh: Budi Santoso"
           value={nama}
-          onChange={(e) => setNama(e.target.value)}
-          placeholder="Contoh: Mario Hyuuga Reza Angga Pratama"
+          onChange={(event) => {
+            setNama(event.target.value);
+            setError({ ...error, nama: "" });
+            setBerhasil("");
+          }}
+          aria-invalid={Boolean(error.nama)}
+          aria-describedby={error.nama ? "error-nama" : undefined}
           className={kelasInput}
         />
         {error.nama && (
-          <p className="mt-1 text-sm font-semibold text-destructive">{error.nama}</p>
+          <p
+            id="error-nama"
+            className="mt-1 text-sm text-aksen dark:text-red-400"
+            role="alert"
+          >
+            {error.nama}
+          </p>
         )}
       </div>
 
-      {/* 2. Isian Email */}
       <div>
-        <label htmlFor="email" className="block font-semibold text-foreground">
+        <label
+          htmlFor="email"
+          className="block font-semibold text-primary"
+        >
           Email
         </label>
         <input
-          type="text"
           id="email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          placeholder="nama@contoh.com"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Contoh: barz@email.com"
+          onChange={(event) => {
+            setEmail(event.target.value);
+            setError({ ...error, email: "" });
+            setBerhasil("");
+          }}
+          aria-invalid={Boolean(error.email)}
+          aria-describedby={error.email ? "error-email" : undefined}
           className={kelasInput}
         />
         {error.email && (
-          <p className="mt-1 text-sm font-semibold text-destructive">{error.email}</p>
+          <p
+            id="error-email"
+            className="mt-1 text-sm text-aksen dark:text-red-400"
+            role="alert"
+          >
+            {error.email}
+          </p>
         )}
       </div>
 
-      {/* 3. Isian Nomor HP */}
       <div>
-        <label htmlFor="nohp" className="block font-semibold text-foreground">
+        <label
+          htmlFor="telepon"
+          className="block font-semibold text-primary"
+        >
           Nomor HP
         </label>
         <input
+          id="telepon"
+          name="telepon"
           type="tel"
-          id="nohp"
+          autoComplete="tel"
           placeholder="081234567890"
+          value={telepon}
+          onChange={(event) => {
+            setTelepon(event.target.value);
+            setError({ ...error, telepon: "" });
+            setBerhasil("");
+          }}
+          aria-invalid={Boolean(error.telepon)}
+          aria-describedby={error.telepon ? "error-telepon" : undefined}
           className={kelasInput}
-          value={hp}
-          onChange={(e) => setHp(e.target.value)}
         />
-        {error.hp && (
-          <p className="mt-1 text-sm font-semibold text-destructive">{error.hp}</p>
+        {error.telepon && (
+          <p
+            id="error-telepon"
+            className="mt-1 text-sm text-aksen dark:text-red-400"
+            role="alert"
+          >
+            {error.telepon}
+          </p>
         )}
       </div>
 
-      {/* 4. Isian Keperluan */}
       <div>
-        <label htmlFor="keperluan" className="block font-semibold text-foreground">
+        <label
+          htmlFor="keperluan"
+          className="block font-semibold text-primary"
+        >
           Keperluan
         </label>
-        <select id="keperluan" name="keperluan" value={keperluan} 
-        onChange={(e) => setKeperluan(e.target.value)} 
-        className={kelasInput}>
+        <select
+          id="keperluan"
+          name="keperluan"
+          value={keperluan}
+          onChange={(event) => {
+            setKeperluan(event.target.value);
+            setError({ ...error, keperluan: "" });
+            setBerhasil("");
+          }}
+          aria-invalid={Boolean(error.keperluan)}
+          aria-describedby={error.keperluan ? "error-keperluan" : undefined}
+          className={kelasInput}
+        >
           <option value="">-- Pilih keperluan --</option>
           <option value="bertanya">Bertanya</option>
-          <option value="kerja-sama">Kerja sama proyek</option>
-          <option value="lainnya">Lainnya</option>
+          <option value="kerja-sama">Kerja sama / Proyek</option>
         </select>
         {error.keperluan && (
-          <p className="mt-1 text-sm font-semibold text-destructive">{error.keperluan}</p>
+          <p
+            id="error-keperluan"
+            className="mt-1 text-sm text-aksen dark:text-red-400"
+            role="alert"
+          >
+            {error.keperluan}
+          </p>
         )}
       </div>
 
-      {/* 5. Isian Pesan */}
       <div>
-        <label htmlFor="pesan" className="block font-semibold text-foreground">
+        <label
+          htmlFor="pesan"
+          className="block font-semibold text-primary"
+        >
           Pesan
         </label>
         <textarea
           id="pesan"
-          rows="4"
-          placeholder="Tulis pesan Anda di sini..."
-          className={kelasInput}
+          name="pesan"
+          rows="5"
+          placeholder="Tulis pesanmu di sini"
           value={pesan}
-          onChange={(e) => setPesan(e.target.value)}
-        ></textarea>
+          onChange={(event) => {
+            setPesan(event.target.value);
+            setError({ ...error, pesan: "" });
+            setBerhasil("");
+          }}
+          aria-invalid={Boolean(error.pesan)}
+          aria-describedby={error.pesan ? "error-pesan" : undefined}
+          className={`${kelasInput} resize-y`}
+        />
         {error.pesan && (
-          <p className="mt-1 text-sm font-semibold text-destructive">{error.pesan}</p>
+          <p
+            id="error-pesan"
+            className="mt-1 text-sm text-aksen dark:text-red-400"
+            role="alert"
+          >
+            {error.pesan}
+          </p>
         )}
       </div>
 
-      {/* Tombol Kirim */}
       <button
         type="submit"
-        className="rounded-lg bg-black px-6 py-2 font-semibold text-white transition-colors hover:bg-neutral-800"
+        className="rounded-lg bg-aksen px-5 py-3 font-semibold text-white transition-colors hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aksen"
       >
         Kirim Pesan
       </button>
 
-      <p className="mt-2 text-xs text-muted-foreground">
-        Form ini belum mengirim pesan. Untuk menyapa saya, tulis pesan di halaman Buku tamu.
+      <p className="text-sm leading-6 text-slate-500 dark:text-gray-400">
+        Form ini belum tersambung ke layanan pengiriman pesan.
       </p>
-
       {berhasil && (
-        <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">
-          Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
+        <p
+          className="rounded-md bg-green-100 p-3 text-sm text-green-900 dark:bg-green-900 dark:text-green-100"
+          role="status"
+        >
+          {berhasil}
         </p>
       )}
     </form>

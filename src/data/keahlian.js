@@ -1,7 +1,37 @@
 export const keahlian = [
-  { slug: "html", nama: "HTML", level: "Menengah", deskripsi: "Mampu menyusun struktur semantik halaman web, menggunakan tag form, tabel, dan elemen multimedia secara terstruktur pada tugas portofolio." },
-  { slug: "css", nama: "CSS", level: "Menengah", deskripsi: "Menguasai penataan gaya modern menggunakan Flexbox, Grid Layout, penataan variabel warna, dan pembuatan desain responsif agar rapi di semua perangkat." },
-  { slug: "git-github", nama: "Git dan GitHub", level: "Dasar", deskripsi: "Memahami sistem kontrol versi, melakukan commit, menggunakan branch dasar, serta melakukan push repositori portofolio ke akun GitHub." },
-  { slug: "canva", nama: "Desain poster dengan Canva", level: "Mahir", deskripsi: "Ahli dalam merancang aset visual, poster digital, penataan tipografi, dan memilih palet warna yang menarik untuk kebutuhan aset web." },
-  { slug: "javascript", nama: "JavaScript", level: "Dasar", deskripsi: "Mampu melakukan manipulasi DOM dasar, menangani event listener tombol ganti tema, dan menerapkan logika pengondisian waktu sapaan dinamis." }
+  {
+    slug: "html",
+    nama: "HTML",
+    level: "Menengah",
+    deskripsi:
+      "Menyusun struktur halaman web dengan elemen semantik, formulir, tabel, dan media secara teratur.",
+  },
+  {
+    slug: "css",
+    nama: "CSS",
+    level: "Menengah",
+    deskripsi:
+      "Mengatur tampilan halaman menggunakan Flexbox, Grid, variabel warna, dan desain responsif.",
+  },
+  {
+    slug: "git-github",
+    nama: "Git dan GitHub",
+    level: "Dasar",
+    deskripsi:
+      "Mempelajari pencatatan perubahan kode dengan Git serta dasar commit dan penyimpanan proyek di GitHub.",
+  },
+  {
+    slug: "canva",
+    nama: "Desain poster dengan Canva",
+    level: "Mahir",
+    deskripsi:
+      "Membuat desain poster dengan memperhatikan pemilihan warna, tata letak, dan tipografi.",
+  },
+  {
+    slug: "javascript",
+    nama: "JavaScript",
+    level: "Dasar",
+    deskripsi:
+      "Mempelajari dasar event, kondisi, dan perubahan tampilan halaman sebagai respons terhadap interaksi.",
+  },
 ];
